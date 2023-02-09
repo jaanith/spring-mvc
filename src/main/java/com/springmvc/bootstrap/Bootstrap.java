@@ -12,14 +12,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private final CategoryRepository categoryRespository;
+    private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;
     private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRespository,
+    public Bootstrap(CategoryRepository categoryRepository,
                      CustomerRepository customerRepository,
                      VendorRepository vendorRepository) {
-        this.categoryRespository = categoryRespository;
+        this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
         this.vendorRepository = vendorRepository;
     }
@@ -58,13 +58,13 @@ public class Bootstrap implements CommandLineRunner {
         Category nuts = new Category();
         nuts.setName("Nuts");
 
-        categoryRespository.save(fruits);
-        categoryRespository.save(dried);
-        categoryRespository.save(fresh);
-        categoryRespository.save(exotic);
-        categoryRespository.save(nuts);
+        categoryRepository.save(fruits);
+        categoryRepository.save(dried);
+        categoryRepository.save(fresh);
+        categoryRepository.save(exotic);
+        categoryRepository.save(nuts);
 
-        System.out.println("Categories Loaded: " + categoryRespository.count());
+        System.out.println("Categories Loaded: " + categoryRepository.count());
     }
 
     private void loadCustomers() {
